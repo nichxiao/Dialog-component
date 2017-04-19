@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="screen-orientation" content="portrait"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+	<title></title>
+	<style>
+	    *{ margin:0; padding:0; }
+		.maskBox{
+            position: fixed; left:0; top:0; width:100%; height:100%; background-color: rgba(0,0,0,0.6); display: -webkit-flex; -webkit-justify-content:center; -webkit-align-items:center;
+		}
+		.popBox{
+			padding:1em; border-radius: 10px; background-color: rgba(0,0,0,0.8);
+		}
+		.popBox .icon{ width:50px; height:50px; margin:0 auto; border-radius:50%; border:2px solid #fff; display:-webkit-flex; -webkit-justify-content:center; -webkit-align-items:center;}
+		.popBox .ok:before{ content:''; display: block; width:30px; height:20px; border:2px solid #fff; border-width:0 0 2px 2px; transform: rotate(-50deg);}
+		.popBox .warning{ -webkit-transform: rotate(90deg); }
+        .popBox .warning:before{ content:''; display: block; width:20px; height:5px; background-color: #fff;}
+        .popBox .warning:after{ content:''; display:block; width:5px; height:5px; margin-left: 5px; background-color: #fff; }
+		.popBox .text{ padding:1em 1em 0; line-height:180%; text-align: center; color:#fff; }
+		.footer{ padding:1em 1em 0; display: -webkit-flex; -webkit-justify-content:center; -webkit-align-items:center; }
+		.footer button{ border:1px solid #fff; color:#eee; -webkit-appearance:normal; background: reba(255,255,255,0.8); padding:0.8rem 1.8rem; border:none; border-radius: 5px; margin:0 0.3em; text-shadow: #666 1px 1px 0;}
+		.footer .red{ background-color: rgba(251,23,50,0.8);}
+		.footer .green{ background-color: rgba(2,202,200,0.8); }
+	</style>
+</head>
+<body>
+	<!-- <div class="maskBox">
+		<div class="popBox">
+			<div class="icon"></div>
+			<p class="text">你好嘛？</p>
+			<div class="footer">
+				<button>confrim</button>
+				<button>cancle</button>
+			</div>
+		</div>
+	</div> -->
+</body>
+<script type="text/javascript" src="zepto.min.js"></script>
+<script type="text/javascript" src="component.js"></script>
+<script>
+	var d = new Dialog({
+	     message:'你还好吗？',
+	     type:'ok',
+	     buttons:[
+               {
+               	  type:'red',
+               	  text:'好',
+               	  callback:function(){
+                     alert(1);
+                     return false;
+               	  }
+               },
+               {
+               	   type:'green',
+               	   text:'不好',
+               	   callback:function(){
+                      alert(3);
+               	   }
+               }
+	     ],
+	     //delay:3000,
+	     maskOpacity:0.5	
+	})
+</script>
+</html>
